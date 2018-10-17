@@ -108,13 +108,25 @@ title {
 }
 
 #work {
-    display: grid;
+    /* display: grid;
     grid-template-columns: auto auto auto auto auto;
     grid-auto-rows: 200px;
-    grid-row-gap: 30px;
+    grid-row-gap: 30px; */
     /* justify-content: space-evenly; */
     text-align: center;
     margin-left: auto;
+    width: auto;
+    /* height: 100px; */
+    overflow-x: scroll;
+    /* overflow-y: hidden; */
+    /* white-space: nowrap; */
+}
+
+.x-scroll {
+    margin-top: 25px;
+    margin-bottom: 50px;
+    white-space: nowrap;
+    overflow-x: scroll;
 }
 
 .img-div {
@@ -126,7 +138,11 @@ title {
     justify-self: center;
     align-self: center;
     position: relative;
-    /* box-shadow: 3px 3px #ccc; */
+    white-space: normal;
+    display: inline-block;
+    box-shadow: 3px 3px #ccc;
+    margin-right: 10px;
+    border: 1px solid lightgray;
 }
 
 .img-div:hover .overlay{

@@ -5,9 +5,23 @@ fetch('/images').then(function(response) {
     console.log(data);
     //data can be named anything
     data.files.forEach(imageMaker);
+    // for (i = 0; i < Object.keys(data.captions).length; i ++) {
+    //     let imgToBeCaptioned = document.getElementsByName(Object.keys(data.captions)[i]);
+    //     // console.log(imgToBeCaptioned[0].parentElement);
+    //     let caption = document.createElement('h3');
+    //     let overlay = document.createElement('div');
+    //     caption.className = 'caption';
+    //     overlay.className = 'overlay';
+    //     caption.innerHTML = Object.values(data.captions)[i];
+    //     overlay.appendChild(caption)
+    //     imgToBeCaptioned[0].parentElement.appendChild(overlay);
+    // }
+    return data;
+})
+.then(function(data) {
     for (i = 0; i < Object.keys(data.captions).length; i ++) {
         let imgToBeCaptioned = document.getElementsByName(Object.keys(data.captions)[i]);
-        console.log(imgToBeCaptioned[0].parentElement);
+        // console.log(imgToBeCaptioned[0].parentElement);
         let caption = document.createElement('h3');
         let overlay = document.createElement('div');
         caption.className = 'caption';
@@ -16,20 +30,12 @@ fetch('/images').then(function(response) {
         overlay.appendChild(caption)
         imgToBeCaptioned[0].parentElement.appendChild(overlay);
     }
-    // return data;
 });
-// .then(function(data) {
-//     for (i = 0; i < Object.keys(data.captions).length; i ++) {
-//         let imgToBeCaptioned = document.getElementsByName(Object.keys(data.captions)[i]);
-//         console.log(imgToBeCaptioned[0].parentElement);
-//         let caption = document.createElement('h3');
-//         caption.className = 'caption';
-//         caption.innerHTML = Object.values(data.captions)[i];
-//         imgToBeCaptioned[0].parentElement.appendChild(caption);
-//     }
-// });
 
 const workDiv = document.getElementById('work');
+const logoDiv = document.getElementById('logos');
+const realestateDiv = document.getElementById('realestate');
+const otherDiv = document.getElementById('other');
 
 function imageMaker(image) {
     var fromHere = image.indexOf('/images');
@@ -44,7 +50,19 @@ function imageMaker(image) {
         img.className = 'work-item';
         imgDiv.className = 'img-div';
         imgDiv.appendChild(img);
-        workDiv.appendChild(imgDiv);
+        console.log(img);
+        // console.log(img.getAttribute('src').includes('logos'));
+        if (img.getAttribute('src').includes('logos')) {
+            // console.log(img.getAttribute('src').includes('logos'));
+            logoDiv.appendChild(imgDiv);
+        } else if (img.getAttribute('src').includes('realestate')) {
+            // console.log(img.getAttribute('src').includes('realestate'));
+            realestateDiv.appendChild(imgDiv);
+        } else if (img.getAttribute('src').includes('other')) {
+            // console.log(img.getAttribute('src').includes('other'));
+            otherDiv.appendChild(imgDiv);
+        }
+        // workDiv.appendChild(imgDiv);
     }
     
 }
