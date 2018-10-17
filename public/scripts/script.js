@@ -9,11 +9,25 @@ fetch('/images').then(function(response) {
         let imgToBeCaptioned = document.getElementsByName(Object.keys(data.captions)[i]);
         console.log(imgToBeCaptioned[0].parentElement);
         let caption = document.createElement('h3');
+        let overlay = document.createElement('div');
         caption.className = 'caption';
+        overlay.className = 'overlay';
         caption.innerHTML = Object.values(data.captions)[i];
-        imgToBeCaptioned[0].parentElement.appendChild(caption);
+        overlay.appendChild(caption)
+        imgToBeCaptioned[0].parentElement.appendChild(overlay);
     }
+    // return data;
 });
+// .then(function(data) {
+//     for (i = 0; i < Object.keys(data.captions).length; i ++) {
+//         let imgToBeCaptioned = document.getElementsByName(Object.keys(data.captions)[i]);
+//         console.log(imgToBeCaptioned[0].parentElement);
+//         let caption = document.createElement('h3');
+//         caption.className = 'caption';
+//         caption.innerHTML = Object.values(data.captions)[i];
+//         imgToBeCaptioned[0].parentElement.appendChild(caption);
+//     }
+// });
 
 const workDiv = document.getElementById('work');
 

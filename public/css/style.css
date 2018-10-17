@@ -120,8 +120,8 @@ title {
 .img-div {
     /* height: 100%; */
     /* border-radius: 50%; */
-    /* width: 150px; */
-    /* height: 150px; */
+    width: 200px;
+    height: 200px;
     overflow: hidden;
     justify-self: center;
     align-self: center;
@@ -129,8 +129,21 @@ title {
     /* box-shadow: 3px 3px #ccc; */
 }
 
-.img-div:hover .caption{
-    opacity: 1;
+.img-div:hover .overlay{
+    opacity: .9;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #8b9091;
 }
 
 #work .work-item {
@@ -138,16 +151,23 @@ title {
     max-height: 100%;
     max-width: 100%;
     overflow: hidden;
-}
-
-.caption {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.caption {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     color: white;
-    opacity: 0;
-    transition: .5s ease;
+    /* opacity: 0; */
+    /* transition: .5s ease; */
+    text-align: center;
 }
 
 .footer {
