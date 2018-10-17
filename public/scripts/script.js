@@ -1,33 +1,36 @@
 fetch('/images').then(function(response) {
-    console.log(response);
-    console.log(response.body);
     return response.json();
 })
 .then(function(data) {
+    console.log(data);
     //data can be named anything
-    data.forEach(imageMaker);
+    data.files.forEach(imageMaker);
+    for (i = 0; i < Object.keys(data.captions).length; i ++) {
+        let imgToBeCaptioned = document.getElementsByName(Object.keys(data.captions)[i]);
+        console.log(imgToBeCaptioned[0].parentElement);
+        let caption = document.createElement('h3');
+        caption.className = 'caption';
+        caption.innerHTML = Object.values(data.captions)[i];
+        imgToBeCaptioned[0].parentElement.appendChild(caption);
+    }
 });
 
 const workDiv = document.getElementById('work');
 
 function imageMaker(image) {
-    console.log(image);
-    console.log(image.indexOf('/images'));
     var fromHere = image.indexOf('/images');
     var restOfString = image.substr(fromHere);
-    console.log(restOfString);
+    var endHere = image.lastIndexOf('/');
+    var imgName = image.substr(endHere + 1).split('.').shift();
     const imgDiv = document.createElement('div');
-    // const imgThumbnail = document.createElement('div');
     const img = document.createElement('img');
-    // img.setAttribute('src', "images/work/" + image);
-    img.setAttribute('src', restOfString);
-    img.className = 'work-item';
-    // img.className += ' img-div';
-    imgDiv.className = 'img-div';
-    // imgThumbnail.className = 'work-thumbnail';
-    // img.setAttribute('src', image);
-    // workDiv.appendChild(img);
-    // imgThumbnail.appendChild(img);
-    imgDiv.appendChild(img);
-    workDiv.appendChild(imgDiv);
+    if (!restOfString.includes('.DS_Store')) {
+        img.setAttribute('src', restOfString);
+        img.setAttribute('name', imgName);
+        img.className = 'work-item';
+        imgDiv.className = 'img-div';
+        imgDiv.appendChild(img);
+        workDiv.appendChild(imgDiv);
+    }
+    
 }

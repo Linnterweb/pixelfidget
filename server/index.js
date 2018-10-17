@@ -22,10 +22,17 @@ app.get('/images', function(req, res) {
     //     console.log(file);
     //     res.json(file);
     // })
-    files = rread.fileSync(imgFolder);
+    let files = rread.fileSync(imgFolder);
+    let captions = JSON.parse(fs.readFileSync(path.join(__dirname, 'captions.json'), 'utf8'));
+    // let captions = fs.readFileSync(path.join(__dirname, 'captions.json'), 'utf8');
+    console.log(captions);
     // files = rread.fileSync('./')
     console.log(files);
-    res.json(files);
+    let payload = {
+        files,
+        captions
+    };
+    res.json(payload);
 });
 
 app.get('/', function(req, res) {

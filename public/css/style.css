@@ -98,7 +98,7 @@ title {
     padding: 0 px;
     height: 1px;
     background: #8b9091;
-
+    z-index: 10;
 }
 
 #work-container {
@@ -125,7 +125,12 @@ title {
     overflow: hidden;
     justify-self: center;
     align-self: center;
+    position: relative;
     /* box-shadow: 3px 3px #ccc; */
+}
+
+.img-div:hover .caption{
+    opacity: 1;
 }
 
 #work .work-item {
@@ -133,6 +138,16 @@ title {
     max-height: 100%;
     max-width: 100%;
     overflow: hidden;
+}
+
+.caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    opacity: 0;
+    transition: .5s ease;
 }
 
 .footer {
