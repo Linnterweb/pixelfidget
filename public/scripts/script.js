@@ -11,11 +11,16 @@ fetch('/images').then(function(response) {
 const workDiv = document.getElementById('work');
 
 function imageMaker(image) {
-    // console.log(image);
+    console.log(image);
+    console.log(image.indexOf('/images'));
+    var fromHere = image.indexOf('/images');
+    var restOfString = image.substr(fromHere);
+    console.log(restOfString);
     const imgDiv = document.createElement('div');
     // const imgThumbnail = document.createElement('div');
     const img = document.createElement('img');
-    img.setAttribute('src', "images/work/" + image);
+    // img.setAttribute('src', "images/work/" + image);
+    img.setAttribute('src', restOfString);
     img.className = 'work-item';
     // img.className += ' img-div';
     imgDiv.className = 'img-div';
