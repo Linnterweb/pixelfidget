@@ -35,26 +35,12 @@ function work() {
         return response.json();
     })
         .then(function (data) {
-            console.log(data);
-            //data can be named anything
             data.files.forEach(imageMaker);
-            // for (i = 0; i < Object.keys(data.captions).length; i ++) {
-            //     let imgToBeCaptioned = document.getElementsByName(Object.keys(data.captions)[i]);
-            //     // console.log(imgToBeCaptioned[0].parentElement);
-            //     let caption = document.createElement('h3');
-            //     let overlay = document.createElement('div');
-            //     caption.className = 'caption';
-            //     overlay.className = 'overlay';
-            //     caption.innerHTML = Object.values(data.captions)[i];
-            //     overlay.appendChild(caption)
-            //     imgToBeCaptioned[0].parentElement.appendChild(overlay);
-            // }
             return data;
         })
         .then(function (data) {
             for (i = 0; i < Object.keys(data.captions).length; i++) {
                 let imgToBeCaptioned = document.getElementsByName(Object.keys(data.captions)[i]);
-                // console.log(imgToBeCaptioned[0].parentElement);
                 let caption = document.createElement('h3');
                 let overlay = document.createElement('div');
                 caption.className = 'caption';
@@ -82,20 +68,15 @@ function work() {
             img.setAttribute('name', imgName);
             img.className = 'work-item';
             imgDiv.className = 'img-div';
+            imgDiv.addEventListener('click', createModal);
             imgDiv.appendChild(img);
-            console.log(img);
-            // console.log(img.getAttribute('src').includes('logos'));
             if (img.getAttribute('src').includes('logos')) {
-                // console.log(img.getAttribute('src').includes('logos'));
                 logoDiv.appendChild(imgDiv);
             } else if (img.getAttribute('src').includes('realestate')) {
-                // console.log(img.getAttribute('src').includes('realestate'));
                 realestateDiv.appendChild(imgDiv);
             } else if (img.getAttribute('src').includes('other')) {
-                // console.log(img.getAttribute('src').includes('other'));
                 otherDiv.appendChild(imgDiv);
             }
-            // workDiv.appendChild(imgDiv);
         }
 
     }
@@ -143,3 +124,21 @@ workBtn.addEventListener('click', function (ev) {
     aboutDiv.innerHTML = '';
     work();
 })
+
+function createModal(ev) {
+    let modalDiv = document.createElement('div');
+    modalDiv.id = 'myModal';
+    modalDiv.className = 'modal';
+    let modalContent = document.createElement('img');
+    modalContent.id = 'modalImg';
+    modalContent.className = 'modal-content';
+    modalContent.src = this.firstElementChild.src;
+
+    modalDiv.appendChild(modalContent);
+    document.body.appendChild(modalDiv);
+    document.body.addEventListener('click', function() {
+        if (event.target == modalDiv) {
+            modalDiv.parentNode.removeChild(modalDiv);
+        }
+    })
+}
