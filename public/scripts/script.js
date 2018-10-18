@@ -1,5 +1,6 @@
 const workDiv = document.getElementById('work');
 const aboutDiv = document.getElementById('about');
+const aboutContainer = document.getElementById('about-container');
 
 about();
 
@@ -88,25 +89,37 @@ function about() {
     })
     .then(function(data) {
 
+        let textContainer = document.createElement('div');
+
+        let logo = document.createElement('img');
+        logo.className = 'julie-logo';
+        logo.src = './images/JulieFaceLogo2018.png';
+        aboutDiv.appendChild(logo);
+
         let about = document.createElement('h1');
         about.innerHTML = data.about;
-        aboutDiv.appendChild(about);
+        textContainer.appendChild(about);
+        // aboutDiv.appendChild(textContainer);
 
         let p1 = document.createElement('p');
         p1.innerHTML = data.p1;
-        aboutDiv.appendChild(p1);
+        textContainer.appendChild(p1);
+        // aboutDiv.appendChild(p1);
 
         let p2 = document.createElement('p');
         p2.innerHTML = data.p2;
-        aboutDiv.appendChild(p2);
+        textContainer.appendChild(p2);
+        // aboutDiv.appendChild(p2);
 
         let p3 = document.createElement('p');
         p3.innerHTML = data.p3;
-        aboutDiv.appendChild(p3);
+        textContainer.appendChild(p3);
+        // aboutDiv.appendChild(p3);
         
         let p4 = document.createElement('p');
         p4.innerHTML = data.p4;
-        aboutDiv.appendChild(p4);
+        textContainer.appendChild(p4);
+        aboutDiv.appendChild(textContainer);
     })
 }
 

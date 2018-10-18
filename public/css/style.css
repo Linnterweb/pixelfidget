@@ -101,6 +101,10 @@ title {
     z-index: 10;
 }
 
+.julie-logo {
+    height: 400px;
+}
+
 #work-container {
     width: 90%;
     display: block;
@@ -111,6 +115,13 @@ title {
     width: 90%;
     display: block;
     margin: auto;
+}
+
+#about {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    grid-column-gap: 50px;
 }
 
 #work {
