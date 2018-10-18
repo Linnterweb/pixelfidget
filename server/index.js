@@ -9,31 +9,19 @@ const port = 3000;
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/images', function(req, res) {
-    // fs.readdir(imgFolder, (err, files) => {
-    //     if (err) {
-    //         console.log(err);
-    //         res.end();
-    //     } else {
-    //         console.log(files);
-    //         res.json(files);
-    //     }
-    // });
-    // rread.file(imgFolder, function(file) {
-    //     console.log(file);
-    //     res.json(file);
-    // })
     let files = rread.fileSync(imgFolder);
     let captions = JSON.parse(fs.readFileSync(path.join(__dirname, 'captions.json'), 'utf8'));
-    // let captions = fs.readFileSync(path.join(__dirname, 'captions.json'), 'utf8');
-    console.log(captions);
-    // files = rread.fileSync('./')
-    console.log(files);
     let payload = {
         files,
         captions
     };
     res.json(payload);
 });
+
+app.get('/about', function(req, res) {
+    let about = JSON.parse(fs.readFileSync(path.join(__dirname, 'about.json'), 'utf8'));
+    res.json(about);
+})
 
 app.get('/', function(req, res) {
     res.send();

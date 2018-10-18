@@ -1,4 +1,7 @@
 const workDiv = document.getElementById('work');
+const aboutDiv = document.getElementById('about');
+
+about();
 
 function work() {
     let logoText = document.createElement('h3');
@@ -98,17 +101,45 @@ function work() {
     }
 }
 
+function about() {
+    fetch('/about').then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+
+        let about = document.createElement('h1');
+        about.innerHTML = data.about;
+        aboutDiv.appendChild(about);
+
+        let p1 = document.createElement('p');
+        p1.innerHTML = data.p1;
+        aboutDiv.appendChild(p1);
+
+        let p2 = document.createElement('p');
+        p2.innerHTML = data.p2;
+        aboutDiv.appendChild(p2);
+
+        let p3 = document.createElement('p');
+        p3.innerHTML = data.p3;
+        aboutDiv.appendChild(p3);
+        
+        let p4 = document.createElement('p');
+        p4.innerHTML = data.p4;
+        aboutDiv.appendChild(p4);
+    })
+}
+
 
 const aboutBtn = document.getElementById('about-link');
 aboutBtn.addEventListener('click', function (ev) {
     ev.preventDefault();
-    console.log('hello');
     workDiv.innerHTML = '';
-
+    about();
 })
 
 const workBtn = document.getElementById('work-link');
 workBtn.addEventListener('click', function (ev) {
     ev.preventDefault();
+    aboutDiv.innerHTML = '';
     work();
 })
