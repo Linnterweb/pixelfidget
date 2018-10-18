@@ -2,9 +2,15 @@ const workDiv = document.getElementById('work');
 const aboutDiv = document.getElementById('about');
 const aboutContainer = document.getElementById('about-container');
 
-about();
+// about();
+work();
 
 function work() {
+
+    let h1 = document.createElement('h1');
+    h1.innerHTML = 'Work';
+    workDiv.appendChild(h1);
+
     let logoText = document.createElement('h3');
     logoText.innerHTML = 'Logos';
     workDiv.appendChild(logoText);
@@ -119,6 +125,11 @@ function about() {
         let p4 = document.createElement('p');
         p4.innerHTML = data.p4;
         textContainer.appendChild(p4);
+
+        let p5 = document.createElement('p');
+        p5.innerHTML = data.p5;
+        textContainer.appendChild(p5);
+
         aboutDiv.appendChild(textContainer);
     })
 }
@@ -150,7 +161,7 @@ function createModal(ev) {
     modalDiv.appendChild(modalContent);
     document.body.appendChild(modalDiv);
     document.body.addEventListener('click', function() {
-        if (event.target == modalDiv) {
+        if (event.target == modalDiv || event.target == modalContent) {
             modalDiv.parentNode.removeChild(modalDiv);
         }
     })
