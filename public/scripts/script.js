@@ -138,6 +138,8 @@ function about() {
 const aboutBtn = document.getElementById('about-link');
 aboutBtn.addEventListener('click', function (ev) {
     ev.preventDefault();
+    aboutBtn.style.pointerEvents = 'none';
+    workBtn.style.pointerEvents = 'auto';
     workDiv.innerHTML = '';
     about();
 })
@@ -146,6 +148,8 @@ const workBtn = document.getElementById('work-link');
 workBtn.addEventListener('click', function (ev) {
     ev.preventDefault();
     aboutDiv.innerHTML = '';
+    workBtn.style.pointerEvents = 'none';
+    aboutBtn.style.pointerEvents = 'auto';
     work();
 })
 
@@ -157,7 +161,10 @@ function createModal(ev) {
     modalContent.id = 'modalImg';
     modalContent.className = 'modal-content';
     modalContent.src = this.firstElementChild.src;
+    let centerHelper = document.createElement('span');
+    centerHelper.className = 'center';
 
+    modalDiv.appendChild(centerHelper);
     modalDiv.appendChild(modalContent);
     document.body.appendChild(modalDiv);
     document.body.addEventListener('click', function() {
