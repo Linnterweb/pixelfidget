@@ -215,31 +215,33 @@ title {
 }
 
 .modal {
-    display: block; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(1.1);
+        transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+
+    /*********/
+    /* display: block;
+    position: fixed;
+    z-index: 1;
     padding-top: 50px;
     padding-bottom: 50px;
-    /* padding: 50px; */
-    /* left: 50%; */
-    /* top: 50%; */
     left: 25%;
     top: 10%;
-    /* -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    transform-origin: 50%, 50%; */
-    width: 50%; /* Full width */
-    height: 50%; /* Full height */
-    /* overflow: auto; Enable scroll if needed */
-    /* background-color: rgb(0,0,0); Fallback color */
-    /* background-color: white; Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    width: 50%;
+    height: 50%;
+    background-color: rgba(0,0,0,0.9);
     text-align: center;
     border-radius: 10%;
     animation-name: zoom;
     animation-duration: 0.6s;
-    animation-fill-mode: inherit;
+    animation-fill-mode: inherit; */
 }
 
 .center {
@@ -250,21 +252,32 @@ title {
 
 /* Modal Content (Image) */
 .modal-content {
-    margin: auto;
-    /* display: block; */
+    position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 1rem 1.5rem;
+        width: 24rem;
+        border-radius: 0.5rem
+    /*********/
+    /* margin: auto;
     vertical-align: middle;
-    /* width: 100%; */
     max-width: 100%;
-    /* height: 100%; */
-    max-height: 100%;
-    /* animation-name: zoom;
-    animation-duration: 0.6s; */
+    max-height: 100%; */
 }
 
-@keyframes zoom {
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+/* @keyframes zoom {
     from {transform:scale(0)} 
     to {transform:scale(1)}
-}
+} */
 
 @media only screen and (max-width: 700px){
     /* h1 {

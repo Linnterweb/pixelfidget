@@ -76,7 +76,48 @@ function work() {
             img.setAttribute('name', imgName);
             img.className = 'work-item';
             imgDiv.className = 'img-div';
-            imgDiv.addEventListener('click', createModal);
+            // imgDiv.addEventListener('click', createModal);
+            /////////////////////////
+            let modalMaker2 = function(ev) {
+                let that = this;
+                return new Promise(function(resolve, reject) {
+                    // function createModal(ev) {
+                        let modalDiv = document.createElement('div');
+                        modalDiv.id = 'myModal';
+                        modalDiv.className = 'modal';
+                        let modalContent = document.createElement('img');
+                        modalContent.id = 'modalImg';
+                        modalContent.className = 'modal-content';
+                        // modalContent.src = this.firstElementChild.src;
+                        modalContent.src = that.firstElementChild.src;
+                        let centerHelper = document.createElement('span');
+                        centerHelper.className = 'center';
+                    
+                        modalDiv.appendChild(centerHelper);
+                        modalDiv.appendChild(modalContent);
+                        document.body.appendChild(modalDiv);
+                        // modalDiv.className += ' show-modal';
+                        document.body.addEventListener('click', function() {
+                            if (event.target === modalDiv || event.target === modalContent || event.target === window) {
+                                modalDiv.parentNode.removeChild(modalDiv);
+                            }
+                        })
+                    // }
+                    // resolve(createModal);
+                    // resolve(modalDiv);
+                    resolve();
+                })
+                .then(function() {
+                    // console.log('hey');
+                    // let modal = document.getElementsByClassName('modal');
+                    let modal = document.getElementById('myModal');
+                    modal.className += ' show-modal';
+                })
+            }
+            
+            ////////////////////////
+
+            imgDiv.addEventListener('click', modalMaker2);
             imgDiv.appendChild(img);
             if (img.getAttribute('src').includes('logos')) {
                 logoDiv.appendChild(imgDiv);
@@ -170,9 +211,44 @@ function createModal(ev) {
     modalDiv.appendChild(centerHelper);
     modalDiv.appendChild(modalContent);
     document.body.appendChild(modalDiv);
+    modalDiv.className += ' show-modal';
     document.body.addEventListener('click', function() {
-        if (event.target == modalDiv || event.target == modalContent) {
+        if (event.target === modalDiv || event.target === modalContent || event.target === window) {
             modalDiv.parentNode.removeChild(modalDiv);
         }
     })
 }
+
+
+// let modalMaker2 = function(ev) {
+//     new Promise (createModal(ev))
+//     // new Promise(function(resolve, reject) {
+//     //     resolve(createModal(ev));
+//     // })
+//     .then(console.log('hey'));
+// }
+
+// let modalMaker = new Promise(function(resolve, reject) {
+//     function createModal(ev) {
+//         let modalDiv = document.createElement('div');
+//         modalDiv.id = 'myModal';
+//         modalDiv.className = 'modal';
+//         let modalContent = document.createElement('img');
+//         modalContent.id = 'modalImg';
+//         modalContent.className = 'modal-content';
+//         modalContent.src = this.firstElementChild.src;
+//         let centerHelper = document.createElement('span');
+//         centerHelper.className = 'center';
+    
+//         modalDiv.appendChild(centerHelper);
+//         modalDiv.appendChild(modalContent);
+//         document.body.appendChild(modalDiv);
+//         modalDiv.className += ' show-modal';
+//         document.body.addEventListener('click', function() {
+//             if (event.target === modalDiv || event.target === modalContent || event.target === window) {
+//                 modalDiv.parentNode.removeChild(modalDiv);
+//             }
+//         })
+//     }
+//     resolve(createModal);
+// });
