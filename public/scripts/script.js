@@ -6,10 +6,11 @@ const aboutContainer = document.getElementById('about-container');
 work();
 
 function work() {
+    
 
-    let h1 = document.createElement('h1');
-    h1.innerHTML = 'Work';
-    workDiv.appendChild(h1);
+    // let h1 = document.createElement('h1');
+    // h1.innerHTML = 'Work';
+    // workDiv.appendChild(h1);
 
     let logoText = document.createElement('h3');
     logoText.innerHTML = 'Logos';
@@ -102,9 +103,9 @@ function about() {
         logo.src = './images/JulieFaceLogo2018.png';
         aboutDiv.appendChild(logo);
 
-        let about = document.createElement('h1');
-        about.innerHTML = data.about;
-        textContainer.appendChild(about);
+        // let about = document.createElement('h1');
+        // about.innerHTML = data.about;
+        // aboutContainer.appendChild(about);
         // aboutDiv.appendChild(textContainer);
 
         let p1 = document.createElement('p');
@@ -147,6 +148,8 @@ aboutBtn.addEventListener('click', function (ev) {
 const workBtn = document.getElementById('work-link');
 workBtn.addEventListener('click', function (ev) {
     ev.preventDefault();
+    // let removeLogo = document.getElementsByTagName('h1');
+    // aboutContainer.removeChild(removeLogo[0]);
     aboutDiv.innerHTML = '';
     workBtn.style.pointerEvents = 'none';
     aboutBtn.style.pointerEvents = 'auto';
