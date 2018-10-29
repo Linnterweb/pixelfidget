@@ -1,16 +1,12 @@
 const workDiv = document.getElementById('work');
+const workBtn = document.getElementById('work-link');
 const aboutDiv = document.getElementById('about');
 const aboutContainer = document.getElementById('about-container');
+const aboutBtn = document.getElementById('about-link');
 
-// about();
 work();
 
 function work() {
-    
-
-    // let h1 = document.createElement('h1');
-    // h1.innerHTML = 'Work';
-    // workDiv.appendChild(h1);
 
     let logoText = document.createElement('h3');
     logoText.innerHTML = 'Logos';
@@ -76,19 +72,15 @@ function work() {
             img.setAttribute('name', imgName);
             img.className = 'work-item';
             imgDiv.className = 'img-div';
-            // imgDiv.addEventListener('click', createModal);
-            /////////////////////////
             let modalMaker2 = function(ev) {
                 let that = this;
                 return new Promise(function(resolve, reject) {
-                    // function createModal(ev) {
                         let modalDiv = document.createElement('div');
                         modalDiv.id = 'myModal';
                         modalDiv.className = 'modal';
                         let modalContent = document.createElement('img');
                         modalContent.id = 'modalImg';
                         modalContent.className = 'modal-content';
-                        // modalContent.src = this.firstElementChild.src;
                         modalContent.src = that.firstElementChild.src;
                         let centerHelper = document.createElement('span');
                         centerHelper.className = 'center';
@@ -96,26 +88,19 @@ function work() {
                         modalDiv.appendChild(centerHelper);
                         modalDiv.appendChild(modalContent);
                         document.body.appendChild(modalDiv);
-                        // modalDiv.className += ' show-modal';
                         document.body.addEventListener('click', function() {
                             if (event.target === modalDiv || event.target === modalContent || event.target === window) {
                                 modalDiv.parentNode.removeChild(modalDiv);
                             }
                         })
-                    // }
-                    // resolve(createModal);
-                    // resolve(modalDiv);
                     resolve();
                 })
                 .then(function() {
-                    // console.log('hey');
-                    // let modal = document.getElementsByClassName('modal');
                     let modal = document.getElementById('myModal');
                     modal.className += ' show-modal';
                 })
             }
             
-            ////////////////////////
 
             imgDiv.addEventListener('click', modalMaker2);
             imgDiv.appendChild(img);
@@ -129,6 +114,8 @@ function work() {
         }
 
     }
+    workBtn.style.pointerEvents = 'none';
+    aboutBtn.style.pointerEvents = 'auto';
 }
 
 function about() {
@@ -144,25 +131,18 @@ function about() {
         logo.src = './images/JulieFaceLogo2018.png';
         aboutDiv.appendChild(logo);
 
-        // let about = document.createElement('h1');
-        // about.innerHTML = data.about;
-        // aboutContainer.appendChild(about);
-        // aboutDiv.appendChild(textContainer);
 
         let p1 = document.createElement('p');
         p1.innerHTML = data.p1;
         textContainer.appendChild(p1);
-        // aboutDiv.appendChild(p1);
 
         let p2 = document.createElement('p');
         p2.innerHTML = data.p2;
         textContainer.appendChild(p2);
-        // aboutDiv.appendChild(p2);
 
         let p3 = document.createElement('p');
         p3.innerHTML = data.p3;
         textContainer.appendChild(p3);
-        // aboutDiv.appendChild(p3);
         
         let p4 = document.createElement('p');
         p4.innerHTML = data.p4;
@@ -177,7 +157,6 @@ function about() {
 }
 
 
-const aboutBtn = document.getElementById('about-link');
 aboutBtn.addEventListener('click', function (ev) {
     ev.preventDefault();
     aboutBtn.style.pointerEvents = 'none';
@@ -186,11 +165,9 @@ aboutBtn.addEventListener('click', function (ev) {
     about();
 })
 
-const workBtn = document.getElementById('work-link');
+
 workBtn.addEventListener('click', function (ev) {
     ev.preventDefault();
-    // let removeLogo = document.getElementsByTagName('h1');
-    // aboutContainer.removeChild(removeLogo[0]);
     aboutDiv.innerHTML = '';
     workBtn.style.pointerEvents = 'none';
     aboutBtn.style.pointerEvents = 'auto';
@@ -218,37 +195,3 @@ function createModal(ev) {
         }
     })
 }
-
-
-// let modalMaker2 = function(ev) {
-//     new Promise (createModal(ev))
-//     // new Promise(function(resolve, reject) {
-//     //     resolve(createModal(ev));
-//     // })
-//     .then(console.log('hey'));
-// }
-
-// let modalMaker = new Promise(function(resolve, reject) {
-//     function createModal(ev) {
-//         let modalDiv = document.createElement('div');
-//         modalDiv.id = 'myModal';
-//         modalDiv.className = 'modal';
-//         let modalContent = document.createElement('img');
-//         modalContent.id = 'modalImg';
-//         modalContent.className = 'modal-content';
-//         modalContent.src = this.firstElementChild.src;
-//         let centerHelper = document.createElement('span');
-//         centerHelper.className = 'center';
-    
-//         modalDiv.appendChild(centerHelper);
-//         modalDiv.appendChild(modalContent);
-//         document.body.appendChild(modalDiv);
-//         modalDiv.className += ' show-modal';
-//         document.body.addEventListener('click', function() {
-//             if (event.target === modalDiv || event.target === modalContent || event.target === window) {
-//                 modalDiv.parentNode.removeChild(modalDiv);
-//             }
-//         })
-//     }
-//     resolve(createModal);
-// });
