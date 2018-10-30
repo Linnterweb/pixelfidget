@@ -258,8 +258,10 @@ title {
         transform: translate(-50%, -50%);
         background-color: white;
         padding: 1rem 1.5rem;
-        width: 24rem;
-        border-radius: 0.5rem
+        /* width: 24rem; */
+        border-radius: 0.5rem;
+        max-height: 90%;
+        max-width: 90%;
     /*********/
     /* margin: auto;
     vertical-align: middle;
