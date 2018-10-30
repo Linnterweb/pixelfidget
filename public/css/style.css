@@ -56,47 +56,6 @@ title {
     text-decoration: none;
 }
     
-/* #nav {
-    margin-right: auto;
-    margin-left: auto;
-    width: 70%;
-    max-width: 100%;
-    min-width: 850px;
-}
-
-#nav ul {
-    list-style-type: none;
-    text-align: center;
-    position: relative;
-    display: block;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: white;
-}
-
-#nav ul li {
-    border-right: 1px solid #8b9091;
-    
-}
-#nav ul li:last-of-type {
-    border-right: none;
-}
-#nav ul ul li {
-    border-right: none;
-}
-
-#nav li {
-    float: left;
-    
-}
-#nav li a {
-    display: block;
-    color: gray;
-    text-align: center;
-    padding: 3px 50px;
-    text-decoration: none;
-} */
 .solidblock {
    position: relative;
     width: 100%;
@@ -104,14 +63,10 @@ title {
     padding: 0 px;
     height: 1px;
     background: #8b9091;
-    /* z-index: 10; */
 }
 
 .julie-logo {
     height: 400px;
-    /* width: 100%; */
-    /* height: 100%; */
-    /* object-fit: cover; */
 }
 
 #work-container {
@@ -129,25 +84,14 @@ title {
 #about {
     display: grid;
     grid-template-columns: auto auto;
-    /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
     align-items: center;
-    /* grid-auto-rows: 350px; */
-    /* grid-column-gap: 50px; */
 }
 
 #work {
-    /* display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    grid-auto-rows: 200px;
-    grid-row-gap: 30px; */
-    /* justify-content: space-evenly; */
     text-align: center;
     margin-left: auto;
     width: auto;
-    /* height: 100px; */
     overflow-x: scroll;
-    /* overflow-y: hidden; */
-    /* white-space: nowrap; */
 }
 
 .x-scroll {
@@ -158,8 +102,6 @@ title {
 }
 
 .img-div {
-    /* height: 100%; */
-    /* border-radius: 50%; */
     width: 200px;
     height: 200px;
     overflow: hidden;
@@ -191,7 +133,6 @@ title {
 }
 
 #work .work-item {
-    /* text-align: center; */
     max-height: 100%;
     max-width: 100%;
     overflow: hidden;
@@ -209,8 +150,6 @@ title {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     color: white;
-    /* opacity: 0; */
-    /* transition: .5s ease; */
     text-align: center;
 }
 
@@ -225,23 +164,6 @@ title {
         visibility: hidden;
         transform: scale(1.1);
         transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-
-    /*********/
-    /* display: block;
-    position: fixed;
-    z-index: 1;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    left: 25%;
-    top: 10%;
-    width: 50%;
-    height: 50%;
-    background-color: rgba(0,0,0,0.9);
-    text-align: center;
-    border-radius: 10%;
-    animation-name: zoom;
-    animation-duration: 0.6s;
-    animation-fill-mode: inherit; */
 }
 
 .center {
@@ -258,15 +180,9 @@ title {
         transform: translate(-50%, -50%);
         background-color: white;
         padding: 1rem 1.5rem;
-        /* width: 24rem; */
         border-radius: 0.5rem;
-        max-height: 90%;
-        max-width: 90%;
-    /*********/
-    /* margin: auto;
-    vertical-align: middle;
-    max-width: 100%;
-    max-height: 100%; */
+        max-height: 70%;
+        max-width: 70%;
 }
 
 .show-modal {
@@ -276,15 +192,9 @@ title {
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 
-/* @keyframes zoom {
-    from {transform:scale(0)} 
-    to {transform:scale(1)}
-} */
 
 @media only screen and (max-width: 700px){
-    /* h1 {
-        display: none;
-    } */
+    
     #about {
         grid-template-columns: auto;
     }
@@ -298,7 +208,6 @@ title {
 }
 
 .footer {
-    /* position: absolute; */
     left: 0;
     right: 0;
     bottom: 6px;
@@ -311,7 +220,6 @@ title {
 .footer ul {
     list-style-type: none;
     text-align: center;
-    /* display: block; */
     margin: 2px;
     padding: 0;
     overflow: hidden;
@@ -322,7 +230,6 @@ title {
     color: gray;
     text-align: center;
     font-size: 12px;
-    /* padding: 0px 100px; */
     padding: 0 2%;
     text-decoration: none;
 }
